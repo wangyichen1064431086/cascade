@@ -1,4 +1,5 @@
-//# 原创有用代码块之一：excel数据处理成多层json数组
+// You can use this the func dealData to change data from excel to the json we Cascade need
+
 
 		const fs=require('fs');
 		

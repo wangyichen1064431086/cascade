@@ -1,0 +1,22 @@
+{
+  "name": "cascade-wyc",
+  "version": "0.1.0",
+  "description": "\"datanews making application\"",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Wang Yichen",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.8",
+    "babel-preset-es2015": "^6.18.0",
+    "browser-sync": "^2.17.5",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-load-plugins": "^1.4.0",
+    "gulp-sourcemaps": "^2.2.0",
+    "gulp-util": "^3.0.7",
+    "webpack": "^1.13.3"
+  }
+}
