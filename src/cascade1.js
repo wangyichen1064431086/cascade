@@ -105,54 +105,19 @@ class Cascade{
 
 		this.buildTipOption = this.buildTipOption.bind(this);
 		this.fillCurrentLevelEl = this.fillCurrentLevelEl.bind(this);
-		this.toCascadeNextEl = this.toCascadeNextEl.bind(this);
 		this.initTheEls = this.initTheEls.bind(this);
+		this.toCascadeNextEl = this.toCascadeNextEl.bind(this);
 
-		/*
-		this.selectEls[0].innerHTML = "";
-		this.selectEls[1].innerHTML = "";
-		this.selectEls[2].innerHTML = "";
-
-		this.selectEls[0].appendChild(this.buildTipOption());
-		this.fillCurrentLevelEl(selectEls[0],data);
-		*/
 		this.initTheEls(selectEls,dataByLevelArr);
-		/*
-		selectEls[0].onchange = (e) => {
-			const level0 = e.target.value;//this永远等于currentTarget，即被绑定的元素对象；而target为事件的实际目标
-			selectEls[1].innerHTML = "";
-
-			dataByLevelArr[0].forEach ((item) => {
-				if(level0 === item.name){
-					//var level1s = item.state;
-					this.dataByLevelArr.push(item.state);//下一层使用的数据就是dataByLevelArr[1]
-				}
-			});
-
-			this.fillCurrentLevelEl(selectEls[1],level1s);
-			this.simulateChangeEvent(selectEls[1]);
-		};*/
-		this.toCascadeNextEl(0,selectEls,dataByLevelArr);
-
-
-		/*
-		selectEls[1].onchange = (e) => {
-			const level1 = e.target.value;
-			selectEls[2].innerHTML ="";
-	
-			dataByLevelArr[1].forEach((itema) => {
-				if(level1==itema.name){
-					//const level2s = itema.state;
-					dataByLevelArr[2]=itema.state;//下一层使用的数据就是dataByLevelArr[2]
-				}
-			});
-
-			this.fillCurrentLevelEl(selectEls[2],dataByLevelArr[2]);
+		
+		for(let i=0;i<num-1;i++){
+			this.toCascadeNextEl(i,selectEls,dataByLevelArr);
 		}
-		*/
-		this.toCascadeNextEl(1,selectEls,dataByLevelArr);
+		
 	}
 
+	/* Method buildTipOption: Produce the  <option value="-1">请选择</>
+	*/
 	buildTipOption(){
 		const tipOption = document.createElement("option");
 		tipOption.value = -1;
@@ -160,21 +125,22 @@ class Cascade{
 		return tipOption;
 	}
 
+	/* Method simulateChangedEvent: Simulate the behavior of the event "change"
+	 * @param el——type:HTMLElement, a "select" HTMLElement;eg:selectEls[0]
+	*/
 	simulateChangeEvent(el){
 		const changeEvent = document.createEvent("HTMLEvents");
 		changeEvent.initEvent("change",false,true);
 		el.dispatchEvent(changeEvent);
 	}
 
-	/*
-	* @param currentLevelEl——type ：a select HTMLElement; eg: selectsEls[0]
-	* @param currentLevelData——type: a obj accord with here "data" form; eg:data
+	/* Methode fillCurrentLevelEl: Use currentLevelData to produce a list of option elements to fill in the currentLevelEl
+	* @param currentLevelEl——type ：HTMLElement,a "select" HTMLElement; eg: selectsEls[0]
+	* @param currentLevelData——type: Obj, a obj accord with the data structure of "data" ; eg:data
 	*/
 	fillCurrentLevelEl(currentLevelEl,currentLevelData){
-		//currentLevelEl.innerHTML = "";
-		//currentLevelEl.appendChild(this.buildTipOption());
-		console.log("fillCurrentLevelElp1:"+currentLevelEl);
-		console.log("fillCurrentLevelElp2:"+currentLevelData);
+		//console.log("fillCurrentLevelElp1:"+currentLevelEl);
+		//console.log("fillCurrentLevelElp2:"+currentLevelData);
 		(currentLevelData).forEach(function(item){
 			const oneOption = document.createElement("option");
 			oneOption.value = item.name;
@@ -183,10 +149,13 @@ class Cascade{
 		});
 	}
 
-
+	/* Method initTheEls:Set all "select" elements' content to "",then fill the selectEls[0]
+	 * @param elArr——type: array,an array of "select" Element;eg:selectEls
+	 * @param dataArr——type: array,an array of obj data which are accord with the data structure of "data"
+	*/
 	initTheEls(elArr,dataArr){
-		console.log(elArr);
-		console.log(dataArr);
+		//console.log(elArr);
+		//console.log(dataArr);
 		for(let i=0,len = elArr.length;i<len;i++){
 			elArr[i].innerHTML = "";
 		}
@@ -196,17 +165,11 @@ class Cascade{
 	}
 
 
-	/*
+	/* Method toCascadeNextEl: When current level "select" element onchange, fill in the next level "select" element.
 	 * @param n:如果一共有n层级联，即 this.selectEls.length 为 n,则该参数值为当前发生onchange事件的级联元素的index:0,1,2...n-2,最多为倒数第二个元素
 	 * @param elArr = this.selectEls
 	*/
 	toCascadeNextEl(n,elArr,dataArr){
-		console.log(typeof(n));
-		console.log("toCasecadeNextEl_data:"+ dataArr);
-		console.log("toCasecadeNextEl_p2: "+elArr[n]);
-		console.log("toCasecadeNextEl_p3: "+dataArr[n]);
-
-
 		elArr[n].onchange = (e) => {
 			const targetValue = e.target.value;//this永远等于currentTarget，即被绑定的元素对象；而target为事件的实际目标
 			elArr[n+1].innerHTML = "";
@@ -224,7 +187,6 @@ class Cascade{
 			}
 			
 		};
-
 	}
 
 }
