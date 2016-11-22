@@ -17,6 +17,8 @@
     "gulp-load-plugins": "^1.4.0",
     "gulp-sourcemaps": "^2.2.0",
     "gulp-util": "^3.0.7",
+    "is-there": "^4.3.6",
+    "mkdirp": "^0.5.1",
     "webpack": "^1.13.3"
   }
 }

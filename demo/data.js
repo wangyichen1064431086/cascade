@@ -1,3 +1,4 @@
+
 const myCity = [
 	{
 		"name": "安徽",
@@ -2188,4 +2189,38 @@ const myCity = [
 	}
 ];
 
+/* For test the data of 2 level
+const myCity = [
+	{
+		"name": "安徽",
+		"state": [
+		{
+			"name": "蚌埠"
+		},
+		{
+			"name": "合肥"
+		}]
+	},
+	{
+		"name": "江苏",
+		"state": [
+		{
+			"name": "苏州"
+		},
+		{
+			"name": "淮安"
+		},
+		{
+			"name": "南京"
+		}],
+	},
+	{
+		"name": "上海",
+		"state": [
+		{
+			"name": "上海"
+		}]
+	}
+]
+*/ 
 export {myCity};

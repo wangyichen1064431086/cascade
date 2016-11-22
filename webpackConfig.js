@@ -4,7 +4,7 @@ const path = require('path');
 module.exports = {
 	entry: './demo/main.js',
 	output: {
-		path:path.join(__dirname, 'demo/js'),
+		path:path.join(__dirname, '.tmp/js'),
 		filename: 'main.js',
 		sourceMapFilename: '[file].map'
 	},
@@ -14,7 +14,7 @@ module.exports = {
 		loaders: [
 			{
 				test: /\.js$/,
-				include: __dirname,
+				//include: __dirname,
 				loader: 'babel',
 				query: {
 					presets: ['es2015']

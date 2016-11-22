@@ -99,9 +99,8 @@ class Cascade{
 			selectEls.push(oneSelectEl);
 		}
 		const num = selectEls.length;
-		let dataByLevelArr = new Array(num);
+		const dataByLevelArr = new Array(num);
 		dataByLevelArr[0]= data;
-		console.log(dataByLevelArr[0]);
 
 		this.buildTipOption = this.buildTipOption.bind(this);
 		this.fillCurrentLevelEl = this.fillCurrentLevelEl.bind(this);
@@ -112,8 +111,7 @@ class Cascade{
 		
 		for(let i=0;i<num-1;i++){
 			this.toCascadeNextEl(i,selectEls,dataByLevelArr);
-		}
-		
+		}	
 	}
 
 	/* Method buildTipOption: Produce the  <option value="-1">请选择</>
@@ -139,8 +137,6 @@ class Cascade{
 	* @param currentLevelData——type: Obj, a obj accord with the data structure of "data" ; eg:data
 	*/
 	fillCurrentLevelEl(currentLevelEl,currentLevelData){
-		//console.log("fillCurrentLevelElp1:"+currentLevelEl);
-		//console.log("fillCurrentLevelElp2:"+currentLevelData);
 		(currentLevelData).forEach(function(item){
 			const oneOption = document.createElement("option");
 			oneOption.value = item.name;
@@ -166,18 +162,18 @@ class Cascade{
 
 
 	/* Method toCascadeNextEl: When current level "select" element onchange, fill in the next level "select" element.
-	 * @param n:如果一共有n层级联，即 this.selectEls.length 为 n,则该参数值为当前发生onchange事件的级联元素的index:0,1,2...n-2,最多为倒数第二个元素
-	 * @param elArr = this.selectEls
+	 * @param n——type:number,如果一共有n层级联，即 this.selectEls.length 为 n,则该参数值为当前发生onchange事件的级联元素的index:0,1,2...n-2,最多为倒数第二个元素
+	 * @param elArr——type:array;eg:selectEls
+	 * @param dataArr——type:array;eg:dataByLevelArr
 	*/
 	toCascadeNextEl(n,elArr,dataArr){
 		elArr[n].onchange = (e) => {
-			const targetValue = e.target.value;//this永远等于currentTarget，即被绑定的元素对象；而target为事件的实际目标
+			const targetValue = e.target.value;
 			elArr[n+1].innerHTML = "";
 
 			(dataArr[n]).forEach ((item) => {
 				if(targetValue == item.name){
-					//var level1s = item.state;
-					dataArr[n+1] = item.state;//下一层使用的数据就是dataByLevelArr[1]
+					dataArr[n+1] = item.state;//下一层使用的数据就是dataByLevelArr[n+1]
 				}
 			});
 
