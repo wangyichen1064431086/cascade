@@ -86,6 +86,7 @@ You need to convert your data to a javascript array, like:
         }]
       }
     ]
+
 ```
 
 Yes,it is a 3 level data. But you can have any level data as long as you like. Every element of the array is a object like {"name":"","state":[]},the content of "state" is an array with the same structure as the top array.
@@ -97,7 +98,7 @@ For example, the above data, myCity,has 3 levels, so the html must have 3 "selec
 ### Produce an instance of the class "Cascade"
 You just need to write
 
-``
+```
     const myCascade = new Cascade(paramA,paramB);`
  
 ```
