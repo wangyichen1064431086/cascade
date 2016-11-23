@@ -106,7 +106,7 @@ You just need to write
 The paramA is your data, eg:myCity. And the paramB is an array of the ids of your "select" element, eg :["id1","id2","id3"]
 
 ## Preview the demo
-I had writed a demo for you to preview the effect.
+I had written a demo for you to preview the effect.
 
 You just need to 
 
