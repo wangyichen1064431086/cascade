@@ -1,6 +1,6 @@
 {
   "name": "@ftchinese/cascade",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "",
   "main": "gulpfile.js",
   "module": "dist/cascade.es.js",
@@ -9,7 +9,8 @@
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "prepare": "rollup -c"
   },
   "repository": {
     "type": "git",
