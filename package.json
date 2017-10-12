@@ -1,8 +1,9 @@
 {
-  "name": "cascade-wyc",
+  "name": "@ftchinese/cascade",
   "version": "0.1.0",
   "description": "\"datanews making application\"",
   "main": "gulpfile.js",
+  "module": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
