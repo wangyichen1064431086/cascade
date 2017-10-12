@@ -1,9 +1,16 @@
 {
-  "name": "@ftchinese/cascade",
-  "version": "0.1.3",
+  "name": "cascade",
+  "version": "0.1.4",
   "description": "",
   "main": "gulpfile.js",
   "module": "dist/cascade.es.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/wangyichen1064431086/cascade.git"
@@ -12,9 +19,6 @@
     "url": "https://github.com/wangyichen1064431086/cascade/issues"
   },
   "homepage": "https://github.com/wangyichen1064431086/cascade",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "Wang Yichen",
   "license": "MIT",
   "devDependencies": {
@@ -28,6 +32,7 @@
     "gulp-util": "^3.0.7",
     "is-there": "^4.3.6",
     "mkdirp": "^0.5.1",
+    "rollup": "^0.50.0",
     "webpack": "^1.13.3"
   }
 }
