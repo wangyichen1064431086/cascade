@@ -1,4 +1,4 @@
-
+/*
 const myCity = [
 	{
 		"name": "安徽",
@@ -2188,7 +2188,7 @@ const myCity = [
 		}]
 	}
 ];
-
+*/
 /* For test the data of 2 level
 const myCity = [
 	{
@@ -2223,4 +2223,126 @@ const myCity = [
 	}
 ]
 */ 
-export {myCity};
+
+// 3 level:
+const rawData=[
+  {"province":"安徽","city":"蚌埠","shop":"蚌埠星辉汽车销售服务有限公司"},
+  {"province":"安徽","city":"阜阳","shop":"阜阳伟久汽车销售服务有限公司"},
+  {"province":"安徽","city":"合肥","shop":"安徽之星汽车销售服务有限公司"},
+  {"province":"安徽","city":"合肥","shop":"合肥利之星汽车服务有限公司"},
+  {"province":"安徽","city":"马鞍山","shop":"马鞍山之星汽车销售服务有限公司"},
+  {"province":"安徽","city":"铜陵","shop":"铜陵利星汽车销售服务有限公司"},
+  {"province":"安徽","city":"芜湖","shop":"芜湖中星汽车销售服务有限公司北京中路分公司"},
+  {"province":"江苏","city":"苏州","shop":"常熟中升之星汽车销售服务有限公司"},
+  {"province":"江苏","city":"常州","shop":"常州之星汽车有限公司"},
+  {"province":"江苏","city":"常州","shop":"常州外汽星豪汽车销售服务有限公司"},
+  {"province":"江苏","city":"常州","shop":"常州万帮汽车销售服务有限公司"},
+  {"province":"江苏","city":"淮安","shop":"淮安之星汽车销售服务有限公司"},
+  {"province":"江苏","city":"淮安","shop":"淮安之星汽车销售服务有限公司清河新区分公司"}
+];
+/* 4 level:
+const rawData = [
+  {"province":"安徽","city":"宿州市","shop":"安徽汇玺通","phone":"0557-5815555"},
+  {"province":"安徽","city":"合肥市","shop":"安徽上联","phone":"0551-64289788"},
+  {"province":"安徽","city":"合肥市","shop":"安徽申众和","phone":"0551-63412888"},
+  {"province":"安徽","city":"合肥市","shop":"安徽物华","phone":"0551-63877677"},
+  {"province":"安徽","city":"合肥市","shop":"安徽智富","phone":"0551-65596111"},
+  {"province":"安徽","city":"合肥市","shop":"安徽智富","phone":"0551-65579333"},
+  {"province":"安徽","city":"安庆市","shop":"安庆福众","phone":"0556-5328605"},
+  {"province":"安徽","city":"安庆市","shop":"安庆永兴","phone":"0556-5907788"},
+  {"province":"安徽","city":"蚌埠市","shop":"蚌埠虹智","phone":"0552-2856555"},
+  {"province":"安徽","city":"蚌埠市","shop":"蚌埠联众","phone":"0552-3713888"},
+  {"province":"安徽","city":"亳州市","shop":"亳州春雨","phone":"0558-5015555"},
+  {"province":"安徽","city":"亳州市","shop":"亳州亚夏众爱","phone":"0558-5673555"},
+  {"province":"安徽","city":"巢湖","shop":"巢湖运众","phone":"0551-82665588"},
+  {"province":"安徽","city":"池州市","shop":"池州浩智","phone":"0566--2611358"},
+  {"province":"安徽","city":"滁州市","shop":"滁州益众","phone":"0550-3211709"},
+  {"province":"安徽","city":"淮南市","shop":"凤台星众","phone":"0554-8883555"},
+  {"province":"安徽","city":"阜阳市","shop":"阜阳伟杰","phone":"0558-2513333"},
+  {"province":"安徽","city":"宣城市","shop":"广德众爱","phone":"0563-6982666"},
+  {"province":"安徽","city":"合肥市","shop":"合肥大名","phone":"0551-64211111"},
+  {"province":"安徽","city":"巢湖","shop":"合肥华锐","phone":"0551-82316777"},
+  {"province":"安徽","city":"合肥市","shop":"合肥锦乐","phone":"0551-67317779"},
+  {"province":"安徽","city":"合肥市","shop":"合肥锐众","phone":"0551-87651788"},
+  {"province":"安徽","city":"合肥市","shop":"合肥伟朗","phone":"0551-67676661"},
+  {"province":"安徽","city":"合肥市","shop":"合肥众鑫成","phone":"0551-68933088"},
+  {"province":"安徽","city":"合肥市","shop":"恒信众和","phone":"0551-6553600"},
+  {"province":"安徽","city":"淮北市","shop":"淮北华松","phone":"0561-3117899"},
+  {"province":"安徽","city":"淮北市","shop":"淮北瑞耀","phone":"0561-3913888"},
+  {"province":"安徽","city":"淮南市","shop":"淮南润众","phone":"0554-6419168"},
+  {"province":"安徽","city":"淮南市","shop":"淮南鑫众","phone":"0554-3311555"},
+  {"province":"安徽","city":"黄山市","shop":"黄山昱众","phone":"0559-2343666"},
+  {"province":"安徽","city":"黄山市","shop":"黄山众发","phone":"0559-7810888"},
+  {"province":"安徽","city":"六安市","shop":"六安德众","phone":"0564-3630888"},
+  {"province":"安徽","city":"六安市","shop":"六安星众","phone":"0564-3260788"},
+  {"province":"安徽","city":"马鞍山市","shop":"马鞍山澳众","phone":"0555-3503944"},
+  {"province":"安徽","city":"马鞍山市","shop":"马鞍山中大","phone":"0555-2103778"},
+  {"province":"安徽","city":"亳州市","shop":"蒙城春雨慧众","phone":"0558-7925999"},
+  {"province":"安徽","city":"六安市","shop":"舒城景众","phone":"0564-8573777"},
+  {"province":"安徽","city":"安庆市","shop":"太湖福众","phone":"0556-4568866"},
+  {"province":"安徽","city":"安庆市","shop":"桐城锦众","phone":"0556-6753666"},
+  {"province":"安徽","city":"铜陵市","shop":"铜陵众顺","phone":"0562-5327878"},
+  {"province":"安徽","city":"亳州市","shop":"涡阳春雨慧众","phone":"0558-7298288"},
+  {"province":"安徽","city":"芜湖市","shop":"芜湖亚众","phone":"0553-3930988"},
+  {"province":"安徽","city":"芜湖市","shop":"芜湖易和福至","phone":"0553-2671888"},
+  {"province":"安徽","city":"芜湖市","shop":"芜湖众爱","phone":"0553-5873366"},
+  {"province":"安徽","city":"宿州市","shop":"宿州海昌","phone":"0557-3906777"},
+  {"province":"安徽","city":"宣城市","shop":"宣城亚观","phone":"0563-2527188"},
+  {"province":"安徽","city":"宣城市","shop":"宣城亚众","phone":"0563-2625618"},
+  {"province":"河南","city":"安阳市","shop":"安阳大众","phone":"0372-2513111"},
+  {"province":"河南","city":"安阳市","shop":"安阳福尔福","phone":"0372-3322888"},
+  {"province":"河南","city":"安阳市","shop":"安阳威佳","phone":"0372-2113333"},
+  {"province":"河南","city":"南阳市","shop":"邓州恒信众和","phone":"0377-60871000"},
+  {"province":"河南","city":"郑州市","shop":"河南安吉","phone":"0371-60229922"},
+  {"province":"河南","city":"郑州市","shop":"河南天顺成","phone":"0371-56590000"},
+  {"province":"河南","city":"郑州市","shop":"河南豫港","phone":"0371-60536688"},
+  {"province":"河南","city":"鹤壁市","shop":"鹤壁豫光","phone":"0392-6896666"},
+  {"province":"河南","city":"南阳市","shop":"恒康锦程","phone":"0377-61889888"},
+  {"province":"河南","city":"南阳市","shop":"恒康景程","phone":"0377-69966668"},
+  {"province":"河南","city":"郑州市","shop":"恒信德龙","phone":"0371-55555563"},
+  {"province":"河南","city":"安阳","shop":"滑县上众","phone":"0372-8585555"},
+  {"province":"河南","city":"济源市","shop":"济源盛达","phone":"0391-2186666"},
+  {"province":"河南","city":"焦作市","shop":"焦作国华","phone":"0391-2636111"},
+  {"province":"河南","city":"焦作市","shop":"焦作泉达","phone":"0391-3567888"},
+  {"province":"河南","city":"开封市","shop":"开封博宇","phone":"0371-23271111"},
+  {"province":"河南","city":"开封市","shop":"开封金源","phone":"0371-22585111"},
+  {"province":"河南","city":"安阳市","shop":"林州润豊","phone":"0372-6583999"},
+  {"province":"河南","city":"三门峡市","shop":"灵宝豫之众","phone":"0398-2380777"},
+  {"province":"河南","city":"洛阳市","shop":"洛阳德众","phone":"0379-65282222"},
+  {"province":"河南","city":"洛阳市","shop":"洛阳众捷","phone":"0379-65273333"},
+  {"province":"河南","city":"洛阳市","shop":"洛阳众芝宝","phone":"0379-63410598"},
+  {"province":"河南","city":"漯河市","shop":"漯河新驭乐","phone":"0395-2152777"},
+  {"province":"河南","city":"南阳市","shop":"南阳恒康","phone":"0377-63118999"},
+  {"province":"河南","city":"南阳市","shop":"南阳威佳","phone":"0377-60893333"},
+  {"province":"河南","city":"平顶山市","shop":"平顶山威佳","phone":"0375-6176666"},
+  {"province":"河南","city":"濮阳市","shop":"濮阳龙润","phone":"0393-8115588"},
+  {"province":"河南","city":"三门峡市","shop":"三门峡金利达","phone":"0398-2890777"},
+  {"province":"河南","city":"商丘市","shop":"商丘恒昌","phone":"0370-2267361"},
+  {"province":"河南","city":"商丘","shop":"商丘乐成","phone":"0370-2791777"},
+  {"province":"河南","city":"新乡市","shop":"新乡东安新众","phone":"0373-7776888"},
+  {"province":"河南","city":"新乡市","shop":"新乡上众","phone":"0373-2098999"},
+  {"province":"河南","city":"新乡市","shop":"新乡申众","phone":"0373－3693333"},
+  {"province":"河南","city":"新乡市","shop":"新乡天众","phone":"0373-5855555"},
+  {"province":"河南","city":"郑州市","shop":"河南健坤",},
+  {"province":"河南","city":"信阳市","shop":"信阳荣昇","phone":"0376-3355555"},
+  {"province":"河南","city":"信阳市","shop":"信阳润州","phone":"0376-3719999"},
+  {"province":"河南","city":"许昌市","shop":"许昌吉通","phone":"0374-7018777"},
+  {"province":"河南","city":"许昌市","shop":"许昌佳辰","phone":"0374-3329777"},
+  {"province":"河南","city":"商丘市","shop":"永城嘉翼","phone":"0370-5533999"},
+  {"province":"河南","city":"郑州市","shop":"裕华上联","phone":"0371-66817777"},
+  {"province":"河南","city":"新乡市","shop":"原阳东誉","phone":"0373-7587111"},
+  {"province":"河南","city":"新乡市","shop":"长垣大江","phone":"0373-8083111"},
+  {"province":"河南","city":"郑州市","shop":"郑州博业","phone":"0371-65780466"},
+  {"province":"河南","city":"郑州市","shop":"郑州德道","phone":"0371-55085555"},
+  {"province":"河南","city":"郑州市","shop":"郑州东锦","phone":"0371-55022111"},
+  {"province":"河南","city":"郑州市","shop":"郑州东泰","phone":"0371-67661122"},
+  {"province":"河南","city":"郑州市","shop":"郑州东泰润通","phone":"0371-89916100"},
+  {"province":"河南","city":"郑州市","shop":"郑州聚龙","phone":"0371-65972266"},
+  {"province":"河南","city":"郑州市","shop":"郑州兴飞","phone":"0371-67851999"},
+  {"province":"河南","city":"周口市","shop":"周口威佳","phone":"0394-8928000"},
+  {"province":"河南","city":"周口市","shop":"周口中德","phone":"0394-8691111"},
+  {"province":"河南","city":"驻马店市","shop":"驻马店天成","phone":"0396-2955666"},
+  {"province":"河南","city":"驻马店市","shop":"驻马店天浩","phone":"0396-2255111"}
+]
+*/
+export default rawData;
