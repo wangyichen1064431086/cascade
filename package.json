@@ -4,6 +4,10 @@
   "description": "\"datanews making application\"",
   "main": "gulpfile.js",
   "module": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wangyichen1064431086/cascade.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
