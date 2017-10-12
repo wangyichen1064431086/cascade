@@ -1,13 +1,17 @@
 {
   "name": "@ftchinese/cascade",
   "version": "0.1.0",
-  "description": "\"datanews making application\"",
+  "description": "",
   "main": "gulpfile.js",
   "module": "main.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/wangyichen1064431086/cascade.git"
   },
+  "bugs": {
+    "url": "https://github.com/wangyichen1064431086/cascade/issues"
+  },
+  "homepage": "https://github.com/wangyichen1064431086/cascade.git/npmHomepage.md",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
