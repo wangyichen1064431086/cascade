@@ -1,6 +1,6 @@
 {
   "name": "@ftchinese/cascade",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "",
   "main": "gulpfile.js",
   "module": "main.js",
@@ -11,7 +11,7 @@
   "bugs": {
     "url": "https://github.com/wangyichen1064431086/cascade/issues"
   },
-  "homepage": "https://github.com/wangyichen1064431086/cascade/blob/master/npmHompage.md",
+  "homepage": "https://github.com/wangyichen1064431086/cascade",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
