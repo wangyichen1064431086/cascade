@@ -1,9 +1,9 @@
 {
   "name": "@ftchinese/cascade",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "",
   "main": "gulpfile.js",
-  "module": "main.js",
+  "module": "dist/cascade.es.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/wangyichen1064431086/cascade.git"
