@@ -1,6 +1,6 @@
 {
   "name": "@ftchinese/cascade",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "",
   "main": "gulpfile.js",
   "module": "dist/cascade.es.js",
@@ -21,6 +21,11 @@
   "homepage": "https://github.com/wangyichen1064431086/cascade",
   "author": "Wang Yichen",
   "license": "MIT",
+  "keywords":[
+    "cascade",
+    "ftchinese",
+    "select"
+  ],
   "devDependencies": {
     "babel-core": "^6.18.2",
     "babel-loader": "^6.2.8",

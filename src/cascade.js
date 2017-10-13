@@ -1,61 +1,62 @@
 /*
  * param Eg:
  ** @param data: Your cleaned json data,eg: 
-const myCity = [
-	{
-		"name": "安徽",
-		"state": [
-		{
-			"name": "蚌埠",
-			"state": [{
-				"name": "蚌埠汽车销售公司"
-			}]
-		},
-		{
-			"name": "合肥",
-			"state": [{
-				"name": "合肥汽车公司1"
+		const myCity = [
+			{
+				"name": "安徽",
+				"state": [
+				{
+					"name": "蚌埠",
+					"state": [{
+						"name": "蚌埠汽车销售公司"
+					}]
+				},
+				{
+					"name": "合肥",
+					"state": [{
+						"name": "合肥汽车公司1"
+					},
+					{
+						"name": "合肥汽车公司2"
+					}
+				
+				}
 			},
 			{
-				"name": "合肥汽车公司2"
+				"name": "江苏",
+				"state": [{
+					"name": "苏州",
+					"state": [
+					{
+						"name": "苏州汽车公司1"
+					},
+					{
+						"name": "苏州汽车公司2"
+					},
+					{
+						"name": "苏州汽车公司3"
+					}]
+				}	
+			},
+			{
+				"name": "上海",
+				"state": [
+				{
+					"name": "上海",
+					"state": [{
+						"name": "上海宝利德汽车有限公司"
+					},
+					{
+						"name": "上海中升奉星汽车销售服务有限公司"
+					},
+					{
+						"name": "上海越星汽车有限公司"
+					}]
+				}]
 			}
-		
-		}
-	},
-	{
-		"name": "江苏",
-		"state": [{
-			"name": "苏州",
-			"state": [
-			{
-				"name": "苏州汽车公司1"
-			},
-			{
-				"name": "苏州汽车公司2"
-			},
-			{
-				"name": "苏州汽车公司3"
-			}]
-		}	
-	},
-	{
-		"name": "上海",
-		"state": [
-		{
-			"name": "上海",
-			"state": [{
-				"name": "上海宝利德汽车有限公司"
-			},
-			{
-				"name": "上海中升奉星汽车销售服务有限公司"
-			},
-			{
-				"name": "上海越星汽车有限公司"
-			}]
-		}]
-	}
-]
- ** @param elemarr:eg:["province","city","shop"]
+		]
+
+ ** @param selectElArr: Type Array, each item is the id string of a select element in your html file. eg:["province","city","shop"]
 
  * html Eg:
 	<select name="province" id="province" style="top:290px;">
