@@ -20,7 +20,7 @@ gulp.task('html',()=>{
 		.pipe(gulp.dest(DEST));
 });
 
-gulp.task('webpack',(done) => {//这个done是表示这个事做完了，可以开始下一个事，和express的next()作用一样。
+gulp.task('webpack',(done) => {
 	webpack(webpackConfig,function(err,stats){
 		if(err){
 			throw new $.util.PluginErr('webpack',err);
@@ -38,13 +38,12 @@ gulp.task('webpack',(done) => {//这个done是表示这个事做完了，可以�
 	});
 });
 
-gulp.task('serve',gulp.parallel(//要用parallel使得，否则webpack对js的watch会阻塞后面的函数执行。
+gulp.task('serve',gulp.parallel(
 	'html','webpack', () => {
 		browserSync.init({
 			server:{
 				baseDir:['.tmp'],
 				index:'demo.html'
-				//directory:true 如果有这一项，则会列出目录，而不是直接显示index:'demo.html'
 			}
 		});
 	}
