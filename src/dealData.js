@@ -1,24 +1,6 @@
 // You can use this the func dealData to change data from excel to the json we Cascade need
 // There is the tool of translating excel to json:http://www.bejson.com/json/col2json/
 
-
-/* Eg data: 3 level
-const rawData=[
-  {"province":"安徽","city":"蚌埠","shop":"蚌埠星辉汽车销售服务有限公司"},
-  {"province":"安徽","city":"阜阳","shop":"阜阳伟久汽车销售服务有限公司"},
-  {"province":"安徽","city":"合肥","shop":"安徽之星汽车销售服务有限公司"},
-  {"province":"安徽","city":"合肥","shop":"合肥利之星汽车服务有限公司"},
-  {"province":"安徽","city":"马鞍山","shop":"马鞍山之星汽车销售服务有限公司"},
-  {"province":"安徽","city":"铜陵","shop":"铜陵利星汽车销售服务有限公司"},
-  {"province":"安徽","city":"芜湖","shop":"芜湖中星汽车销售服务有限公司北京中路分公司"},
-  {"province":"江苏","city":"苏州","shop":"常熟中升之星汽车销售服务有限公司"},
-  {"province":"江苏","city":"常州","shop":"常州之星汽车有限公司"},
-  {"province":"江苏","city":"常州","shop":"常州外汽星豪汽车销售服务有限公司"},
-  {"province":"江苏","city":"常州","shop":"常州万帮汽车销售服务有限公司"},
-  {"province":"江苏","city":"淮安","shop":"淮安之星汽车销售服务有限公司"},
-  {"province":"江苏","city":"淮安","shop":"淮安之星汽车销售服务有限公司清河新区分公司"}
-]
-*/
 function dealData(inputData, fieldArr) {//inputData是一个对象组成的数组
   /**
    * @param inputData: TYPE Array, such as eg data
@@ -74,7 +56,7 @@ function dealData(inputData, fieldArr) {//inputData是一个对象组成的数�
               console.log(`outKeyValuePrev:${outKeyValuePrev}`);
               outValueOne.state = dealOnefield(fieldIndex+1);
             } else {
-              console.log("leaf")
+              console.log("leaf");
             }
 
             outValueArr.push(outValueOne); 
