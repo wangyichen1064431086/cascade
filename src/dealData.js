@@ -24,100 +24,67 @@ function dealData(inputData, fieldArr) {//inputData是一个对象组成的数�
    * @param inputData: TYPE Array, such as eg data
    * @param keyArray:Type Array, each item is a string.deal Data following order of this array.such as ["provice","city","shop"]
    */
-  //先取出不同的省份存入数组provinceArray,并为outputData生成最外层的name字段（即省份）
-  /*
-  var provinceArray=new Array;
-  var province="";
-  var provinceObj=new Object;
-  var provinceObjArray=new Array;
-
-  var city="";
-  var cityArray;
-  var cityObj;
-  var cityObjArray;
-
-  var shop="";
-  var shopArray;
-  var shopObj;
-  var shopObjArray;
-  */
-  
     
-  const fieldLength = fieldArr.length;
-  let fieldItemPrev = "";
-  let outKeyOnePrev = "";//存放上一级的key值
-  
-  let n = 0; 
-  let m = 0;
+  const fieldLength = fieldArr.length;//字段数组长度： 3
+  let outKeyValuePrev = "";
 
-  const dealOnefield = function(fieldIndex){
-    //for(var i=0,len=inputData.length;i<len;i++) {
-    console.log(`n:${n++}`);
-    const fieldItem = fieldArr[fieldIndex];
+  const dealOnefield = function(fieldIndex){//@param fieldIndex：当前要处理的字段层级   
+    const fieldItem = fieldArr[fieldIndex];//当前字段："province"
 
-    const outKeyArr = new Array();
-    const outValueArr = new Array();
+    const outKeyArr = [];//存放当前层级字段值数组，最后应该为["安徽","江苏"]
+    const outValueArr = [];//存放当前层级字段对象数组，最后应该为[{"name":"安徽", "state":[]}, {"name":"江苏"，"state":[]}]
+    const nameValueArr =[];//保证每个对象的name值只出现过一次
+    let fieldItemPrev = "";
+    
+    if(fieldIndex > 0) {
+      fieldItemPrev = fieldArr[fieldIndex-1];
+    } //fieldItemPrev存放上一字段，如果fieldItem="shop",则fieldItemPrev="province";如果fieldItem="province"，则fieldItemPrev=""
 
-    for(const dataItem of inputData) {
-      //let outKeyOne = "";
-      //let outValueOne = new Object();
-      console.log(`m:${m++}`);
-      if(fieldItemPrev == "" || dataItem[fieldItemPrev] == outKeyOnePrev) {
-        let outKeyOne = dataItem[fieldItem];//原var province值:"安徽"
-        let outValueOne = new Object();
-  
+    ///MARK:先取出本层级的所有值的数组，即完成对outKeyArr的填写
+    for(const dataItem of inputData) { //遍历inputData
+      let outKeyOne = dataItem[fieldItem];//值:"安徽"
+
+      if(fieldItemPrev == "" || dataItem[fieldItemPrev] == outKeyValuePrev) {
         if(outKeyArr.indexOf(outKeyOne) == -1) { //outKeyArr:原 var provinceArray
           outKeyArr.push(outKeyOne);
-          outValueOne.name = outKeyOne;
-  
-          fieldItemPrev = fieldItem;
-          outKeyOnePrev = outKeyOne;
-          
-          /*
-            ///处理城市
-            cityArray=new Array;
-            cityObjArray=new Array;
-            for(var j = 0, len2 = inputData.length; j < len2; j++) {//取出该省下的所有市
-              if(inputData[j].province==province) {
-                city=inputData[j].city;
-                cityObj=new Object;
-                if(cityArray.indexOf(city)==-1) {
-                  cityArray.push(city);
-                  cityObj.name=city;
-                  
-                  ///处理供销商
-                  shopArray=new Array;
-                  shopObjArray=new Array;
-                  for(var k=0,len3=inputData.length;k<len3;k++) {
-                    if(inputData[k].city==city) {
-                      shop=inputData[k].shop;
-                      shopObj=new Object;
-                      if(shopArray.indexOf(shop)==-1) {
-                        shopArray.push(shop);
-                        shopObj.name=shop;
-                        shopObjArray.push(shopObj);
-                      }
-    
-                    }
-                  }
-                  cityObj.state=shopObjArray;
-    
-    
-                  cityObjArray.push(cityObj);
-                }				
-              }
-            }
-          */
-  
-          //provinceObj.state = cityObjArray;
-          if(fieldIndex + 1 < fieldLength) {
-            outValueOne.state = dealOnefield(fieldIndex+1);
-          }
-          //provinceObjArray.push(provinceObj);
-          outValueArr.push(outValueOne);  
         }
-  
-      }  
+      } 
+    }
+
+    console.log(`outKeyArr:${JSON.stringify(outKeyArr)}`);
+    //MARK:完成对本级outValueArr的填写
+    for(const dataItem of inputData) {
+      for(const [outKeyIndex, outKey] of outKeyArr.entries()) { //遍历当前值数组：["安徽","江苏"]
+        let outValueOne = new Object();//创建一个对象，存放对应该值数组每个值的结果对象即{"name":"安徽", "state":[]}
+        
+        outKeyValuePrev = outKey;
+        console.log(`here fieldItemPrev:${fieldItemPrev}`);
+        console.log(`here fieldIndex:${fieldIndex}`);
+
+        if(dataItem[fieldItem] == outKey) { //如果此次遍历的当前字段和outValueOne.name相等
+         
+          if(nameValueArr.indexOf(outKey) == -1) { //没有处理过这个outKey的才需要处理
+            nameValueArr.push(outKey);
+            outValueOne.name = outKey;
+
+            if(fieldIndex+1 < fieldLength) {//如果还有下一个字段，则state为下一个字段执行dealOnefield
+              console.log("nextField");
+              console.log(`fieldIndex+1:${fieldIndex+1}`);
+              
+              console.log(`outKeyValuePrev:${outKeyValuePrev}`);
+              outValueOne.state = dealOnefield(fieldIndex+1);
+            } else {
+              console.log("leaf")
+            }
+
+            outValueArr.push(outValueOne); 
+          }
+          
+         
+        }
+        
+      }
+      
     }
     return outValueArr;
   };

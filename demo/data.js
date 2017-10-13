@@ -2225,6 +2225,7 @@ const myCity = [
 */ 
 
 // 3 level:
+/*
 const rawData=[
   {"province":"安徽","city":"蚌埠","shop":"蚌埠星辉汽车销售服务有限公司"},
   {"province":"安徽","city":"阜阳","shop":"阜阳伟久汽车销售服务有限公司"},
@@ -2240,7 +2241,8 @@ const rawData=[
   {"province":"江苏","city":"淮安","shop":"淮安之星汽车销售服务有限公司"},
   {"province":"江苏","city":"淮安","shop":"淮安之星汽车销售服务有限公司清河新区分公司"}
 ];
-/* 4 level:
+*/
+//4 level:
 const rawData = [
   {"province":"安徽","city":"宿州市","shop":"安徽汇玺通","phone":"0557-5815555"},
   {"province":"安徽","city":"合肥市","shop":"安徽上联","phone":"0551-64289788"},
@@ -2344,5 +2346,5 @@ const rawData = [
   {"province":"河南","city":"驻马店市","shop":"驻马店天成","phone":"0396-2955666"},
   {"province":"河南","city":"驻马店市","shop":"驻马店天浩","phone":"0396-2255111"}
 ]
-*/
+
 export default rawData;
