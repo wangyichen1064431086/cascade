@@ -33,15 +33,12 @@ function dealData(inputData, fieldArr) {//inputData是一个对象组成的数�
       } 
     }
 
-    console.log(`outKeyArr:${JSON.stringify(outKeyArr)}`);
     //MARK:完成对本级outValueArr的填写
     for(const dataItem of inputData) {
       for(const [outKeyIndex, outKey] of outKeyArr.entries()) { //遍历当前值数组：["安徽","江苏"]
         let outValueOne = new Object();//创建一个对象，存放对应该值数组每个值的结果对象即{"name":"安徽", "state":[]}
         
         outKeyValuePrev = outKey;
-        console.log(`here fieldItemPrev:${fieldItemPrev}`);
-        console.log(`here fieldIndex:${fieldIndex}`);
 
         if(dataItem[fieldItem] == outKey) { //如果此次遍历的当前字段和outValueOne.name相等
          
@@ -50,14 +47,10 @@ function dealData(inputData, fieldArr) {//inputData是一个对象组成的数�
             outValueOne.name = outKey;
 
             if(fieldIndex+1 < fieldLength) {//如果还有下一个字段，则state为下一个字段执行dealOnefield
-              console.log("nextField");
-              console.log(`fieldIndex+1:${fieldIndex+1}`);
-              
-              console.log(`outKeyValuePrev:${outKeyValuePrev}`);
               outValueOne.state = dealOnefield(fieldIndex+1);
-            } else {
+            }/* else {
               console.log("leaf");
-            }
+            }*/
 
             outValueArr.push(outValueOne); 
           }

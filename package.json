@@ -1,6 +1,6 @@
 {
   "name": "@ftchinese/cascade",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "gulpfile.js",
   "module": "dist/cascade.es.js",
